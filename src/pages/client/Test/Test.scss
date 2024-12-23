@@ -1,0 +1,59 @@
+// styles.scss
+.test-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-top: 5vh;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 15px;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  img {
+    width: 100%;              // Chiều rộng 100% để ảnh chiếm hết không gian của thẻ
+    height: 80vh;            // Chiều cao cố định cho các ảnh
+    object-fit: cover;        // Giữ nguyên tỷ lệ và cắt bớt phần dư thừa của ảnh nếu cần
+    border-radius: 8px;       // Bo tròn góc ảnh
+    margin-bottom: 10px;
+  }
+
+  a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #1890ff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #40a9ff;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .test-container {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}

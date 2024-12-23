@@ -1,0 +1,48 @@
+/* Đường dẫn CSS: Login.css */
+.login-card {
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+    max-width: 400px;
+    /* Giới hạn chiều rộng của card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Thêm bóng đổ cho card */
+    padding: 20px;
+    background: #fff;
+}
+
+.google-login-button {
+    background-color: #4285f4;
+    /* Màu chính của Google */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.google-login-button:hover {
+    background-color: #357ae8;
+}
+
+.google-login-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+a {
+    margin-top: 10px;
+    color: #1890ff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

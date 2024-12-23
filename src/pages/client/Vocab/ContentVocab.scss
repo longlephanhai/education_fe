@@ -1,0 +1,114 @@
+.vocab-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  .vocab-list__item {
+    flex: 1 1 100%;
+    max-width: 100%;
+    padding: 8px;
+
+    @media (min-width: 576px) {
+      flex: 1 1 50%; // Chiều rộng 50% trên màn hình nhỏ
+    }
+
+    @media (min-width: 768px) {
+      flex: 1 1 33.33%; // Chiều rộng 33.33% trên màn hình vừa
+    }
+
+    @media (min-width: 992px) {
+      flex: 1 1 25%; // Chiều rộng 25% trên màn hình lớn
+    }
+  }
+}
+
+.vocab-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  /* Tạo 5 cột có độ rộng bằng nhau */
+  gap: 16px;
+  margin: 0 auto;
+  max-width: 100%;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 cột trên màn hình medium */
+  }
+
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 cột trên màn hình nhỏ hơn */
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 cột trên màn hình di động */
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    /* 1 cột trên màn hình nhỏ nhất */
+  }
+
+  .vocab-list__item {
+    display: flex;
+    justify-content: center;
+    /* Đảm bảo các item căn giữa trong cột */
+  }
+
+  .vocab-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    height: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    &__audio {
+      margin-bottom: 8px;
+    }
+
+    &__image {
+      width: 200px;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+
+    &__vocb {
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    &__type,
+    &__pronounce,
+    &__meaning,
+    &__example {
+      font-size: 1rem;
+      margin-bottom: 6px;
+      color: #666;
+    }
+
+    &__favorite {
+      margin-top: 12px;
+      font-size: 1.5rem;
+      color: #f39c12;
+      cursor: pointer;
+
+      &-active {
+        color: #f1c40f;
+        margin-top: 12px;
+        font-size: 1.5rem;
+        color: #f39c12;
+        cursor: pointer;
+      }
+    }
+  }
+}

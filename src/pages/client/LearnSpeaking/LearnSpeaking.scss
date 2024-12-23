@@ -1,0 +1,262 @@
+.chat {
+  min-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in;
+
+  &__title {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 20px;
+    color: #333;
+    animation: slideInFromTop 1s ease-out;
+  }
+
+  &__controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-in;
+  }
+
+  &__button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 14px;
+
+    &--start {
+      background-color: #4caf50;
+      color: white;
+    }
+
+    &--stop {
+      background-color: #f44336;
+      color: white;
+    }
+
+    &--start-session {
+      background-color: #007bff;
+      color: white;
+    }
+
+    &--repeat {
+      background-color: #ff9800;
+      color: white;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  &__messages {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+    animation: fadeInMessages 1s ease-in;
+  }
+
+  &__bubble {
+    max-width: 80%;
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 1.5;
+    opacity: 0;
+    animation: fadeInMessage 1s ease-out forwards;
+
+    &--left {
+      background-color: #e8e8e8;
+      align-self: flex-start;
+      border-top-left-radius: 0;
+    }
+
+    &--right {
+      background-color: #007bff;
+      color: white;
+      align-self: flex-end;
+      border-top-right-radius: 0;
+    }
+  }
+
+  &__form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    animation: fadeIn 1s ease-in;
+  }
+
+  &__input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+      border-color: #007bff;
+    }
+  }
+
+  &__form-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  &__audio {
+    width: 100%;
+    margin-top: 10px;
+    display: none;
+  }
+
+  @media screen and (max-width: 768px) {
+    .chat {
+      padding: 15px;
+      min-width: 100%;
+    }
+
+    .chat__title {
+      font-size: 22px;
+    }
+
+    .chat__controls {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .chat__button {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .chat__messages {
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    .chat__bubble {
+      font-size: 12px;
+    }
+
+    .chat__input {
+      font-size: 12px;
+      padding: 8px;
+    }
+
+    .chat__form {
+      flex-direction: column;
+    }
+
+    .chat__form-button {
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .chat {
+      padding: 10px;
+    }
+
+    .chat__title {
+      font-size: 18px;
+    }
+
+    .chat__controls {
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .chat__button {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    .chat__input {
+      padding: 8px;
+      font-size: 14px;
+    }
+
+    .chat__form-button {
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    .chat__audio {
+      margin-top: 15px;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInMessages {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInMessage {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

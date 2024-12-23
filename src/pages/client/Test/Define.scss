@@ -1,0 +1,143 @@
+.match-words {
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+  margin-top: 3rem;
+  padding: 3rem;
+  border-radius: 12px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 100vh;
+}
+.reset-button {
+  padding: 10px 20px;
+  background-color: #0099cc;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  height: 40px;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 30%;
+  right: 50%;
+  &:hover {
+    background-color: #0077a3;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+.words,
+.meanings {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex: 1;
+
+  .selected {
+    background-color: #80deea;
+    color: #00796b;
+    border-color: #00796b;
+    transform: scale(1.05);
+  }
+}
+
+.words div,
+.meanings div {
+  padding: 1rem;
+  background-color: #ffffff;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.words div:hover,
+.meanings div:hover {
+  background-color: #e0f7fa;
+  transform: scale(1.05);
+  border-color: #00bcd4;
+}
+
+
+.matching {
+  animation: matchAnimation 0.5s ease-out;
+}
+
+@keyframes matchAnimation {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Mobile responsiveness: Không cho cột chiếm hết chiều rộng */
+@media (max-width: 768px) {
+  .match-words {
+    padding: 2rem;
+    margin-top: 2rem;
+    gap: 2rem;
+
+  }
+
+  .words,
+  .meanings {
+    flex: none;
+    width: 45%;
+    margin-bottom: 1rem;
+    align-self: center;
+
+  }
+
+  .words div,
+  .meanings div {
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+}
+
+/* Large tablet and small desktop responsiveness */
+@media (max-width: 1024px) {
+  .match-words {
+    padding: 2.5rem;
+  }
+
+  .words div,
+  .meanings div {
+    font-size: 1.1rem;
+    /* Giảm font size chút xíu cho các thiết bị màn hình trung bình */
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .match-words {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .words div,
+  .meanings div {
+    font-size: 0.9rem;
+    /* Giảm font size cho thiết bị nhỏ */
+    padding: 0.8rem;
+    /* Giảm padding cho các thiết bị nhỏ */
+  }
+}
