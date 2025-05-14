@@ -1,10 +1,15 @@
 import { useLocation } from "react-router-dom"
 import { Button, Card, Form, Image, Input, Select } from 'antd'
 import { useEffect, useRef, useState } from "react"
+import { toast } from "react-toastify"
+import Summary from "../../../API"
+import axios from "axios"
 const CreateQuestionPartOne = () => {
   const location = useLocation()
+
   const title = location?.state?.title
   const _id = location?.state?.id
+
   const fileInputRef = useRef(null);
   const [previewImage, setPreviewImage] = useState('');
   const [avatar, setAvatar] = useState(null)
@@ -21,14 +26,31 @@ const CreateQuestionPartOne = () => {
   };
   useEffect(() => {
     form.setFieldsValue({
-      examId: title,
+      partOneId: title,
     })
   })
 
   const [isLoading, setIsLoading] = useState(false)
   const [form] = Form.useForm()
   const onFinish = async (values) => {
-
+    values.partOneId = _id
+    values.imageUrl = avatar
+    setIsLoading(true)
+    try {
+      const response = await axios.post(Summary.postQuestionPartOne.url, values, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
+          'Content-Type': 'multipart/form-data',
+        }
+      })
+      toast.success(response.data.message)
+      setIsLoading(false)
+      form.resetFields()
+      setPreviewImage(null)
+    } catch (error) {
+      setIsLoading(false)
+      toast.error(error.response.data.message)
+    }
   }
   return (
     <Card title="Trang tạo câu hỏi">
@@ -52,7 +74,7 @@ const CreateQuestionPartOne = () => {
       >
         <Form.Item
           label="Tiêu đề"
-          name="examId"
+          name="partOneId"
           rules={[
             {
               required: true,
