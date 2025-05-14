@@ -53,6 +53,7 @@ import ToeicExam from "../pages/client/Toeic/ToeicExam";
 import Profile from "../pages/client/Profile/Profile";
 import VocabSaved from "../pages/client/VocabSaved/VocabSaved";
 import PartOne from "../pages/admin/PartOne/PartOne";
+import CreatePartOne from "../pages/admin/PartOne/CreatePartOne";
 
 
 export const router = [
@@ -265,6 +266,10 @@ export const router = [
       {
         path: "part-1",
         element: <PartOne />
+      },
+      {
+        path: "part-1/create-part1",
+        element: <CreatePartOne />
       }
     ]
   },
