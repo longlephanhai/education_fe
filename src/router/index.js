@@ -52,6 +52,7 @@ import About from "../pages/client/About/About";
 import ToeicExam from "../pages/client/Toeic/ToeicExam";
 import Profile from "../pages/client/Profile/Profile";
 import VocabSaved from "../pages/client/VocabSaved/VocabSaved";
+import PartOne from "../pages/admin/PartOne/PartOne";
 
 
 export const router = [
@@ -140,8 +141,8 @@ export const router = [
         element: <Toeic />
       },
       {
-        path:"practice/toeic/exam/:id",
-        element:<ToeicExam/>
+        path: "practice/toeic/exam/:id",
+        element: <ToeicExam />
       },
       {
         path: "practice/toeic/:id",
@@ -152,20 +153,20 @@ export const router = [
         element: <ToeicResult />
       },
       {
-        path:"documents",
-        element:<Document/>
+        path: "documents",
+        element: <Document />
       },
       {
         path: "aboutus",
         element: <About />
       },
       {
-        path:'profile',
-        element:<Profile/>
+        path: 'profile',
+        element: <Profile />
       },
       {
-        path:"vocab-save",
-        element:<VocabSaved/>
+        path: "vocab-save",
+        element: <VocabSaved />
       }
     ]
   },
@@ -246,20 +247,24 @@ export const router = [
         element: <CreateQuestion />
       },
       {
-        path:'doc',
-        element:<Doc/>
+        path: 'doc',
+        element: <Doc />
       },
       {
-        path:'doc/upload',
-        element:<UploadDoc/>
+        path: 'doc/upload',
+        element: <UploadDoc />
       },
       {
-        path:"doc/detail/:id",
-        element:<DetailDoc/>
+        path: "doc/detail/:id",
+        element: <DetailDoc />
       },
       {
-        path:'about-us',
-        element:<AboutUs/>
+        path: 'about-us',
+        element: <AboutUs />
+      },
+      {
+        path: "part-1",
+        element: <PartOne />
       }
     ]
   },

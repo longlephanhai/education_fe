@@ -129,7 +129,7 @@ const LayoutAdmin = () => {
           <Menu.SubMenu key="sub_exam" icon={<MdOutlineQuiz />} title="Parts">
             {
               <Menu.Item key="7" icon={<AiFillPicture />}>
-                <Link to="exam">Part 1</Link>
+                <Link to="part-1">Part 1</Link>
               </Menu.Item>
             }
             {
