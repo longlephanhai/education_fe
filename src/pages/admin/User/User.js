@@ -22,12 +22,12 @@ const User = () => {
   const [data, setData] = useState([])
   const fetchApi = async () => {
     try {
-      const response = await axios.get(Summary.getAllAccounts.url + `?current=${1}&pageSize=10`, {
+      const response = await axios.get(Summary.getAllAccounts.url + `?current=${1}&pageSize=5`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('access_token')}`
         }
       })
-      setData(response.data.data.result)
+      setData(response.data?.data?.result)
     } catch (error) {
       console.log(error.message);
     }
@@ -88,11 +88,11 @@ const User = () => {
         <div>
           {
             permissionsArray?.includes('accounts_edit') &&
-            <Button type="primary" onClick={() => navigate(`update-account/${record._id}`)}>Sửa</Button>
+            <Button type="primary" onClick={() => navigate(`update-account/${record?._id}`)}>Sửa</Button>
           }
           {
             permissionsArray?.includes('accounts_delete') &&
-            <Button type="danger" onClick={() => handleDelete(record._id)}>Xóa</Button>
+            <Button type="danger" onClick={() => handleDelete(record?._id)}>Xóa</Button>
           }
 
         </div>
@@ -103,14 +103,14 @@ const User = () => {
   const [currentPage, setCurrentPage] = useState(1)
   const handleChangePage = async (page) => {
     setCurrentPage(page)
-    navigate(`/admin/user?current=${page}&pageSize=10`)
+    navigate(`/admin/user?current=${page}&pageSize=5`)
     try {
-      const response = await axios.get(Summary.getAllAccounts.url + `?current=${page}&pageSize=10`, {
+      const response = await axios.get(Summary.getAllAccounts.url + `?current=${page}&pageSize=5`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('access_token')}`
         }
       })
-      setData(response.data.data.result)
+      setData(response?.data?.data.result)
     } catch (error) {
       console.log(error.message);
     }
@@ -124,12 +124,14 @@ const User = () => {
       }
 
       <Table
+        key={data?._id}
+        rowKey={(record) => record?._id}
         columns={colums}
         dataSource={data}
         pagination={false}
         style={{ marginBottom: '20px' }}
       />
-      <Pagination defaultCurrent={1} current={currentPage} total={data.length + 10} onChange={handleChangePage} />;
+      <Pagination defaultCurrent={1} current={currentPage} total={data.length + 20} onChange={handleChangePage} />;
     </Card>
   )
 }

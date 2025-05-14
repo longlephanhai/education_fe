@@ -100,7 +100,6 @@ const ToeicTest = () => {
       setFlag(flag.filter(item => item !== questionNumber))
     }
   }
-  console.log(flag);
 
   return (
     <Card style={{ minHeight: '100vh', marginTop: '10vh', padding: '2rem', boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)', position: 'relative' }}>

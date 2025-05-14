@@ -52,7 +52,7 @@ const UpdateAccount = () => {
         email: data.email,
         phone: data.phone,
         password: data.password,
-        role: data.role._id,
+        role: data?.role?._id,
         status: data.isActive ? "active" : "inactive",
         avatar: data.avatar,
       })

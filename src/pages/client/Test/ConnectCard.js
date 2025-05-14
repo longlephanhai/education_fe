@@ -6,7 +6,7 @@ import Summary from '../../../API';
 import './ConnectCard.scss';
 
 const ConnectCard = () => {
-  const params = useParams();
+  const params = useParams();  
   const [data, setData] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
