@@ -54,6 +54,7 @@ import Profile from "../pages/client/Profile/Profile";
 import VocabSaved from "../pages/client/VocabSaved/VocabSaved";
 import PartOne from "../pages/admin/PartOne/PartOne";
 import CreatePartOne from "../pages/admin/PartOne/CreatePartOne";
+import CreateQuestionPartOne from "../pages/admin/PartOne/CreateQuestionPartOne";
 
 
 export const router = [
@@ -270,6 +271,10 @@ export const router = [
       {
         path: "part-1/create-part1",
         element: <CreatePartOne />
+      },
+      {
+        path: "part-1/create-question/:id",
+        element: <CreateQuestionPartOne />
       }
     ]
   },
