@@ -124,25 +124,28 @@ const Summary = {
   randomTopic: {
     url: `${url_backend}/gemini/title`
   },
-  uploadDoc:{
+  uploadDoc: {
     url: `${url_backend}/doc`
   },
-  getDoc:{
+  getDoc: {
     url: `${url_backend}/doc`
   },
-  deleteDoc:{
+  deleteDoc: {
     url: `${url_backend}/doc/`
   },
-  detailDoc:{
+  detailDoc: {
     url: `${url_backend}/doc/`
   },
-  aboutUs:{
+  aboutUs: {
     url: `${url_backend}/aboutus`
   },
-  getAboutUs:{
+  getAboutUs: {
     url: `${url_backend}/aboutus`
   },
-  postPartOne:{
+  postPartOne: {
+    url: `${url_backend}/partone`
+  },
+  getPartOne: {
     url: `${url_backend}/partone`
   }
 }
