@@ -7,7 +7,7 @@ import {
 } from '@ant-design/icons';
 import axios from 'axios';
 import { FaBookAtlas } from "react-icons/fa6";
-import { MdOutlineAdminPanelSettings } from "react-icons/md";
+import { MdOutlineAdminPanelSettings, MdOutlineQuiz } from "react-icons/md";
 import { FaUnlockKeyhole } from "react-icons/fa6";
 import { TbVocabulary } from "react-icons/tb";
 import { Button, Layout, Menu, theme } from 'antd';
@@ -18,8 +18,12 @@ import { TbTextGrammar } from "react-icons/tb";
 import Summary from '../../API';
 import { useDispatch } from 'react-redux';
 import { role } from '../../action/role.action';
-import { FaWarehouse } from "react-icons/fa";
+import { FaAssistiveListeningSystems, FaBookReader, FaWarehouse } from "react-icons/fa";
 import { HiOutlineDocumentArrowDown } from "react-icons/hi2";
+import { AiFillPicture } from "react-icons/ai";
+import { LuListEnd } from "react-icons/lu";
+import { GrAssistListening } from "react-icons/gr";
+import { SiQuizlet } from "react-icons/si";
 const { Header, Sider, Content } = Layout;
 const LayoutAdmin = () => {
   const checkAccessToken = localStorage.getItem('access_token');
@@ -72,6 +76,7 @@ const LayoutAdmin = () => {
 
 
 
+
   return (
     <Layout style={{ width: 'auto', height: '100vh' }}>
       <Sider trigger={null} collapsible collapsed={collapsed}>
@@ -121,10 +126,47 @@ const LayoutAdmin = () => {
               <Link to="exam">Bộ đề</Link>
             </Menu.Item>
           }
-          <Menu.Item key="7" icon={<HiOutlineDocumentArrowDown />}>
+          <Menu.SubMenu key="sub_exam" icon={<MdOutlineQuiz />} title="Parts">
+            {
+              <Menu.Item key="7" icon={<AiFillPicture />}>
+                <Link to="exam">Part 1</Link>
+              </Menu.Item>
+            }
+            {
+              <Menu.Item key="8" icon={<LuListEnd />}>
+                <Link to="exam">Part 2</Link>
+              </Menu.Item>
+            }
+            {
+              <Menu.Item key="9" icon={<GrAssistListening />}>
+                <Link to="exam">Part 3</Link>
+              </Menu.Item>
+            }
+            {
+              <Menu.Item key="10" icon={<FaAssistiveListeningSystems />}>
+                <Link to="exam">Part 4</Link>
+              </Menu.Item>
+            }
+            {
+              <Menu.Item key="11" icon={<MdOutlineQuiz />}>
+                <Link to="exam">Part 5</Link>
+              </Menu.Item>
+            }
+            {
+              <Menu.Item key="12" icon={<SiQuizlet />}>
+                <Link to="exam">Part 6</Link>
+              </Menu.Item>
+            }
+            {
+              <Menu.Item key="13" icon={<FaBookReader />}>
+                <Link to="exam">Part 7</Link>
+              </Menu.Item>
+            }
+          </Menu.SubMenu>
+          <Menu.Item key="14" icon={<HiOutlineDocumentArrowDown />}>
             <Link to="doc">Tài liệu</Link>
           </Menu.Item>
-          <Menu.Item key="8" icon={<FaWarehouse />}>
+          <Menu.Item key="15" icon={<FaWarehouse />}>
             <Link to="about-us">Về chúng tôi</Link>
           </Menu.Item>
         </Menu>
