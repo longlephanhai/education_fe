@@ -141,6 +141,9 @@ const Summary = {
   },
   getAboutUs:{
     url: `${url_backend}/aboutus`
+  },
+  postPartOne:{
+    url: `${url_backend}/partone`
   }
 }
 export default Summary;
