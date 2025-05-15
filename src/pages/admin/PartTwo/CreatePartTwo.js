@@ -20,7 +20,7 @@ const CreatePartTwo = () => {
     values.audioUrl = audioFile;
     setIsLoading(true)
     try {
-      const response = await axios.post(Summary.postPartTwo.urlL, values, {
+      const response = await axios.post(Summary.postPartTwo.url, values, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
           'Content-Type': 'multipart/form-data',
