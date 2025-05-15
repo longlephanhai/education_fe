@@ -134,7 +134,7 @@ const LayoutAdmin = () => {
             }
             {
               <Menu.Item key="8" icon={<LuListEnd />}>
-                <Link to="exam">Part 2</Link>
+                <Link to="part-2">Part 2</Link>
               </Menu.Item>
             }
             {

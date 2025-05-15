@@ -55,6 +55,8 @@ import VocabSaved from "../pages/client/VocabSaved/VocabSaved";
 import PartOne from "../pages/admin/PartOne/PartOne";
 import CreatePartOne from "../pages/admin/PartOne/CreatePartOne";
 import CreateQuestionPartOne from "../pages/admin/PartOne/CreateQuestionPartOne";
+import PartTwo from "../pages/admin/PartTwo/PartTwo";
+import CreatePartTwo from "../pages/admin/PartTwo/CreatePartTwo";
 
 
 export const router = [
@@ -275,6 +277,14 @@ export const router = [
       {
         path: "part-1/create-question/:id",
         element: <CreateQuestionPartOne />
+      },
+      {
+        path: "part-2",
+        element: <PartTwo />
+      },
+      {
+        path: "part-2/create-part2",
+        element: <CreatePartTwo />
       }
     ]
   },
