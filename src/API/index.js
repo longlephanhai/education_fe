@@ -151,5 +151,8 @@ const Summary = {
   postQuestionPartOne: {
     url: `${url_backend}/questionpartone`
   },
+  postPartTwo: {
+    urlL: `${url_backend}/parttwo`
+  }
 }
 export default Summary;
