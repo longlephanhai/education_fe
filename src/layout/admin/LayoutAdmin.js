@@ -144,7 +144,7 @@ const LayoutAdmin = () => {
             }
             {
               <Menu.Item key="10" icon={<FaAssistiveListeningSystems />}>
-                <Link to="exam">Part 4</Link>
+                <Link to="part-4">Part 4</Link>
               </Menu.Item>
             }
             {
