@@ -1,30 +1,8 @@
-import { Button, Card, Table } from 'antd'
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import Summary from '../../../API'
+import { Button, Card, Table } from "antd"
+import { useNavigate } from "react-router-dom"
 
-const PartTwo = () => {
+const PartThree = () => {
   const navigate = useNavigate()
-  const [data, setData] = useState([])
-  const fetchApi = async () => {
-    try {
-      const response = await axios.get(Summary.getPartTwo.url, {
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('access_token')}`
-        }
-      })
-      setData(response.data.data.map(exam => ({
-        ...exam,
-        audioUrl: `${process.env.REACT_APP_URL_BACKEND}/${exam.audioUrl.replace(/\\/g, '/')}`
-      })));
-    } catch (error) {
-      console.log(error.response.data.message);
-    }
-  }
-  useEffect(() => {
-    fetchApi()
-  }, [])
   const columns = [
     {
       title: 'Tiêu đề',
@@ -61,15 +39,15 @@ const PartTwo = () => {
     }
   ]
   return (
-    <Card title='Trang quản lý Part 2'>
+    <Card title='Trang quản lý Part 3'>
       <Button type='primary' onClick={() => navigate('create-part2')}>Tạo mới câu hỏi</Button>
       <Table
         columns={columns}
-        dataSource={data}
+        // dataSource={data}
         rowKey='id'
       />
     </Card>
   )
 }
 
-export default PartTwo
+export default PartThree
