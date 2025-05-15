@@ -40,7 +40,7 @@ const PartThree = () => {
   ]
   return (
     <Card title='Trang quản lý Part 3'>
-      <Button type='primary' onClick={() => navigate('create-part2')}>Tạo mới câu hỏi</Button>
+      <Button type='primary' onClick={() => navigate('create-part3')}>Tạo mới câu hỏi</Button>
       <Table
         columns={columns}
         // dataSource={data}
