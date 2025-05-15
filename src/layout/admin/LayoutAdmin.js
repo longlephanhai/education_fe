@@ -149,7 +149,7 @@ const LayoutAdmin = () => {
             }
             {
               <Menu.Item key="11" icon={<MdOutlineQuiz />}>
-                <Link to="exam">Part 5</Link>
+                <Link to="part-5">Part 5</Link>
               </Menu.Item>
             }
             {
