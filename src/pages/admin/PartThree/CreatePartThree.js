@@ -1,5 +1,8 @@
 import { Button, Card, Form, Input, message } from 'antd'
+import axios from 'axios';
 import React, { useState } from 'react'
+import Summary from '../../../API';
+import { toast } from 'react-toastify';
 
 const CreatePartThree = () => {
   const [audioFile, setAudioFile] = useState(null);
@@ -15,7 +18,22 @@ const CreatePartThree = () => {
   const [form] = Form.useForm()
   const [isLoading, setIsLoading] = useState(false)
   const onFinish = async (values) => {
-
+    values.audioUrl = audioFile;
+    setIsLoading(true)
+    try {
+      const response = await axios.post(Summary.postPartThree.url, values, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
+          'Content-Type': 'multipart/form-data',
+        }
+      })
+      toast.success(response.data.message)
+      setIsLoading(false)
+      form.resetFields()
+    } catch (error) {
+      toast.error(error.response.data.message)
+      setIsLoading(false)
+    }
   }
   return (
     <Card title="Trang tạo mới bộ đề">
