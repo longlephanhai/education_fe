@@ -10,7 +10,7 @@ const CreatePartSeven = () => {
   const onFinish = async (values) => {
     setIsLoading(true)
     try {
-      const response = await axios.post(Summary.postPartSix.url, values, {
+      const response = await axios.post(Summary.postPartSeven.url, values, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
         }

@@ -7,16 +7,16 @@ const PartSeven = () => {
   const navigate = useNavigate()
   const [data, setData] = useState([])
   const fetchApi = async () => {
-    // try {
-    //   const response = await axios.get(Summary.getPartSix.url, {
-    //     headers: {
-    //       'Authorization': `Bearer ${localStorage.getItem('access_token')}`
-    //     }
-    //   })
-    //   setData(response.data.data);
-    // } catch (error) {
-    //   console.log(error.response.data.message);
-    // }
+    try {
+      const response = await axios.get(Summary.getPartSeven.url, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('access_token')}`
+        }
+      })
+      setData(response.data.data);
+    } catch (error) {
+      console.log(error.response.data.message);
+    }
   }
   useEffect(() => {
     fetchApi()
