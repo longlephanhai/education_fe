@@ -1,8 +1,27 @@
 import { Button, Card, Table } from "antd"
+import axios from "axios"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import Summary from "../../../API"
 
 const PartFive = () => {
   const navigate = useNavigate()
+  const [data, setData] = useState([])
+  const fetchApi = async () => {
+    try {
+      const response = await axios.get(Summary.getPartFive.url, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('access_token')}`
+        }
+      })
+      setData(response.data.data);
+    } catch (error) {
+      console.log(error.response.data.message);
+    }
+  }
+  useEffect(() => {
+    fetchApi()
+  }, [])
   const columns = [
     {
       title: 'Tiêu đề',
@@ -13,18 +32,6 @@ const PartFive = () => {
       title: 'Mô tả',
       dataIndex: 'description',
       key: 'description',
-    },
-    {
-      title: 'File nghe',
-      dataIndex: 'audioUrl',
-      key: 'audioUrl',
-      render: (text, record) => (
-        <div>
-          <audio className="" controls>
-            <source src={record.audioUrl} type="audio/mpeg" />
-          </audio>
-        </div>
-      )
     },
     {
       title: 'Hành động',
@@ -43,7 +50,7 @@ const PartFive = () => {
       <Button type='primary' onClick={() => navigate('create-part5')}>Tạo mới câu hỏi</Button>
       <Table
         columns={columns}
-        // dataSource={data}
+        dataSource={data}
         rowKey='id'
       />
     </Card>

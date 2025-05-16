@@ -180,6 +180,9 @@ const Summary = {
   },
   portPartFive: {
     url: `${url_backend}/partfive`
-  }
+  },
+  getPartFive: {
+    url: `${url_backend}/partfive`
+  },
 }
 export default Summary;
