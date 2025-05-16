@@ -65,6 +65,7 @@ import PartFour from "../pages/admin/PartFour/PartFour";
 import CreatePartFour from "../pages/admin/PartFour/CreatePartFour";
 import CreateQuestionPartFour from "../pages/admin/PartFour/CreateQuestionPartFour";
 import PartFive from "../pages/admin/PartFive/PartFive";
+import CreatePartFive from "../pages/admin/PartFive/CreatePartFive";
 
 
 export const router = [
@@ -325,6 +326,10 @@ export const router = [
       {
         path: "part-5",
         element: <PartFive />
+      },
+      {
+        path: "part-5/create-part5",
+        element: <CreatePartFive />
       }
     ]
   },
