@@ -1,8 +1,29 @@
 import { Button, Card, Table } from "antd"
+import axios from "axios"
 import { useNavigate } from "react-router-dom"
+import Summary from "../../../API"
+import { useEffect, useState } from "react"
 
 const PartSix = () => {
   const navigate = useNavigate()
+  const [data, setData] = useState([])
+  const fetchApi = async () => {
+    try {
+      const response = await axios.get(Summary.getPartSix.url, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('access_token')}`
+        }
+      })
+      setData(response.data.data);
+    } catch (error) {
+      console.log(error.response.data.message);
+    }
+  }
+  useEffect(() => {
+    fetchApi()
+  }, [])
+
+
   const columns = [
     {
       title: 'Tiêu đề',
@@ -31,7 +52,7 @@ const PartSix = () => {
       <Button type='primary' onClick={() => navigate('create-part6')}>Tạo mới câu hỏi</Button>
       <Table
         columns={columns}
-        // dataSource={data}
+        dataSource={data}
         rowKey='id'
       />
     </Card>
