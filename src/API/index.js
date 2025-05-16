@@ -184,5 +184,8 @@ const Summary = {
   getPartFive: {
     url: `${url_backend}/partfive`
   },
+  postQuestionPartFive: {
+    url: `${url_backend}/questionpartfive`
+  }
 }
 export default Summary;

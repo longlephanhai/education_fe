@@ -1,6 +1,9 @@
 import { Button, Card, Form, Image, Input, Select } from "antd"
+import axios from "axios"
 import { useEffect, useRef, useState } from "react"
 import { useLocation } from "react-router-dom"
+import Summary from "../../../API"
+import { toast } from "react-toastify"
 
 const CreateQuestionPartFive = () => {
   const location = useLocation()
@@ -29,7 +32,24 @@ const CreateQuestionPartFive = () => {
   const [form] = Form.useForm()
   const [isLoading, setIsLoading] = useState(false)
   const onFinish = async (values) => {
-
+    values.partFiveId = _id
+    values.imageUrl = avatar
+    setIsLoading(true)
+    try {
+      const response = await axios.post(Summary.postQuestionPartFive.url, values, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
+          'Content-Type': 'multipart/form-data',
+        }
+      })
+      toast.success(response.data.message)
+      setIsLoading(false)
+      form.resetFields()
+      setPreviewImage(null)
+    } catch (error) {
+      setIsLoading(false)
+      toast.error(error.response.data.message)
+    }
   }
   return (
     <Card title="Trang tạo câu hỏi">
@@ -53,7 +73,7 @@ const CreateQuestionPartFive = () => {
       >
         <Form.Item
           label="Tiêu đề"
-          name="partFourId"
+          name="partFiveId"
           rules={[
             {
               required: true,
