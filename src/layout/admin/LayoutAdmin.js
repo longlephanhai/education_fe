@@ -154,7 +154,7 @@ const LayoutAdmin = () => {
             }
             {
               <Menu.Item key="12" icon={<SiQuizlet />}>
-                <Link to="exam">Part 6</Link>
+                <Link to="part-6">Part 6</Link>
               </Menu.Item>
             }
             {
