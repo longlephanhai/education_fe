@@ -159,7 +159,7 @@ const LayoutAdmin = () => {
             }
             {
               <Menu.Item key="13" icon={<FaBookReader />}>
-                <Link to="exam">Part 7</Link>
+                <Link to="part-7">Part 7</Link>
               </Menu.Item>
             }
           </Menu.SubMenu>
