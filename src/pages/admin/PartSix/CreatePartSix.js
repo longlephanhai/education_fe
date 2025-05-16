@@ -1,24 +1,27 @@
 import { Button, Card, Form, Input } from 'antd'
+import axios from 'axios'
 import React, { useState } from 'react'
+import Summary from '../../../API'
+import { toast } from 'react-toastify'
 
 const CreatePartSix = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [form] = Form.useForm()
   const onFinish = async (values) => {
-    // setIsLoading(true)
-    // try {
-    //   const response = await axios.post(Summary.portPartFive.url, values, {
-    //     headers: {
-    //       'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
-    //     }
-    //   })
-    //   toast.success(response.data.message)
-    //   setIsLoading(false)
-    //   form.resetFields()
-    // } catch (error) {
-    //   toast.error(error.response.data.message)
-    //   setIsLoading(false)
-    // }
+    setIsLoading(true)
+    try {
+      const response = await axios.post(Summary.postPartSix.url, values, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
+        }
+      })
+      toast.success(response.data.message)
+      setIsLoading(false)
+      form.resetFields()
+    } catch (error) {
+      toast.error(error.response.data.message)
+      setIsLoading(false)
+    }
   }
   return (
     <Card title="Trang tạo mới bộ đề">
