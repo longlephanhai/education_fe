@@ -1,19 +1,30 @@
 import { Button, Card, Form, Input, message } from "antd"
+import axios from "axios";
 import { useState } from "react";
+import Summary from "../../../API";
+import { toast } from "react-toastify";
 
 const CreatePartFive = () => {
-  const [audioFile, setAudioFile] = useState(null);
-  const handleAudioUpload = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      setAudioFile(file);
-      message.success(`${file.name} đã được chọn.`);
-    }
-  };
+
 
   const [isLoading, setIsLoading] = useState(false)
   const [form] = Form.useForm()
-  const onFinish = async (values) => { }
+  const onFinish = async (values) => {
+    setIsLoading(true)
+    try {
+      const response = await axios.post(Summary.portPartFive.url, values, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
+        }
+      })
+      toast.success(response.data.message)
+      setIsLoading(false)
+      form.resetFields()
+    } catch (error) {
+      toast.error(error.response.data.message)
+      setIsLoading(false)
+    }
+  }
 
   return (
     <Card title="Trang tạo mới bộ đề">
@@ -59,20 +70,6 @@ const CreatePartFive = () => {
           ]}
         >
           <Input />
-        </Form.Item>
-
-
-        <Form.Item
-          label="File âm thanh bộ đề"
-          name="audioUrl"
-          rules={[{ required: true, message: 'Vui lòng gửi âm thanh bộ đề!' }]}
-        >
-          <input
-            type="file"
-            name="audioUrl"
-            accept=".mp3,.wav,.ogg"
-            onChange={handleAudioUpload}
-          />
         </Form.Item>
 
 

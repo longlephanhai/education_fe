@@ -178,5 +178,8 @@ const Summary = {
   postQuestionPartFour: {
     url: `${url_backend}/questionpartfour`
   },
+  portPartFive: {
+    url: `${url_backend}/partfive`
+  }
 }
 export default Summary;
