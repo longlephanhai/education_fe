@@ -25,31 +25,31 @@ const CreateQuestionPartSix = () => {
   };
   useEffect(() => {
     form.setFieldsValue({
-      partFiveId: title,
+      partSixId: title,
     })
   })
 
   const [form] = Form.useForm()
   const [isLoading, setIsLoading] = useState(false)
   const onFinish = async (values) => {
-    // values.partFiveId = _id
-    // values.imageUrl = avatar
-    // setIsLoading(true)
-    // try {
-    //   const response = await axios.post(Summary.postQuestionPartFive.url, values, {
-    //     headers: {
-    //       'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
-    //       'Content-Type': 'multipart/form-data',
-    //     }
-    //   })
-    //   toast.success(response.data.message)
-    //   setIsLoading(false)
-    //   form.resetFields()
-    //   setPreviewImage(null)
-    // } catch (error) {
-    //   setIsLoading(false)
-    //   toast.error(error.response.data.message)
-    // }
+    values.partSixId = _id
+    values.imageUrl = avatar
+    setIsLoading(true)
+    try {
+      const response = await axios.post(Summary.postQuestionPartSix.url, values, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
+          'Content-Type': 'multipart/form-data',
+        }
+      })
+      toast.success(response.data.message)
+      setIsLoading(false)
+      form.resetFields()
+      setPreviewImage(null)
+    } catch (error) {
+      setIsLoading(false)
+      toast.error(error.response.data.message)
+    }
   }
   return (
     <Card title="Trang tạo câu hỏi">
@@ -73,7 +73,7 @@ const CreateQuestionPartSix = () => {
       >
         <Form.Item
           label="Tiêu đề"
-          name="partFiveId"
+          name="partSixId"
           rules={[
             {
               required: true,
