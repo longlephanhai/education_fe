@@ -151,6 +151,9 @@ const Summary = {
   getPartOne: {
     url: `${url_backend}/partone`
   },
+  detailPartOne:{
+    url: `${url_backend}/questionpartone/`
+  },
   postQuestionPartOne: {
     url: `${url_backend}/questionpartone`
   },
