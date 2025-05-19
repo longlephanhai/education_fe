@@ -109,7 +109,7 @@ const Summary = {
   getExamTitle: {
     url: `${url_backend}/exam/`
   },
-  getQuestionToeic:{
+  getQuestionToeic: {
     url: `${url_backend}/question/`
   },
   getExamById: {
@@ -151,7 +151,7 @@ const Summary = {
   getPartOne: {
     url: `${url_backend}/partone`
   },
-  detailPartOne:{
+  detailPartOne: {
     url: `${url_backend}/questionpartone/`
   },
   postQuestionPartOne: {
@@ -162,6 +162,9 @@ const Summary = {
   },
   getPartTwo: {
     url: `${url_backend}/parttwo`
+  },
+  detailPartTwo: {
+    url: `${url_backend}/questionparttwo/`
   },
   postQuestionPartTwo: {
     url: `${url_backend}/questionparttwo`
