@@ -77,6 +77,7 @@ import ListQuestionToeic from "../pages/admin/Exam/ListQuestionToeic";
 import DetailPartOne from "../pages/admin/PartOne/DetailPartOne";
 import DetailPartTwo from "../pages/admin/PartTwo/DetailPartTwo";
 import DetailPartThree from "../pages/admin/PartThree/DetailPartThree";
+import DetailPartFour from "../pages/admin/PartFour/DetailPartFour";
 
 
 export const router = [
@@ -303,7 +304,7 @@ export const router = [
         element: <CreateQuestionPartOne />
       },
       {
-        path:"part-1/detail/:id",
+        path: "part-1/detail/:id",
         element: <DetailPartOne />
       },
       {
@@ -319,7 +320,7 @@ export const router = [
         element: <CreateQuestionPartTwo />
       },
       {
-        path:"part-2/detail/:id",
+        path: "part-2/detail/:id",
         element: <DetailPartTwo />
       },
       {
@@ -335,7 +336,7 @@ export const router = [
         element: <CreateQuestionPartThree />
       },
       {
-         path:"part-3/detail/:id",
+        path: "part-3/detail/:id",
         element: <DetailPartThree />
       },
       {
@@ -349,6 +350,10 @@ export const router = [
       {
         path: "part-4/create-question/:id",
         element: <CreateQuestionPartFour />
+      },
+      {
+        path: "part-4/detail/:id",
+        element: <DetailPartFour />
       },
       {
         path: "part-5",
