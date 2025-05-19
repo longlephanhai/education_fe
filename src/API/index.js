@@ -199,6 +199,9 @@ const Summary = {
   getPartFive: {
     url: `${url_backend}/partfive`
   },
+  detailPartFive: {
+    url: `${url_backend}/questionpartfive/`
+  },
   postQuestionPartFive: {
     url: `${url_backend}/questionpartfive`
   },
