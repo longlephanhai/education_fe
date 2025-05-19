@@ -80,6 +80,7 @@ import DetailPartThree from "../pages/admin/PartThree/DetailPartThree";
 import DetailPartFour from "../pages/admin/PartFour/DetailPartFour";
 import DetailPartFive from "../pages/admin/PartFive/DetailPartFive";
 import DetailPartSix from "../pages/admin/PartSix/DetailPartSix";
+import DetailPartSeven from "../pages/admin/PartSeven/DetailPartSeven";
 
 
 export const router = [
@@ -400,7 +401,11 @@ export const router = [
       {
         path: 'part-7/create-question/:id',
         element: <CreateQuestionPartSeven />
-      }
+      },
+      {
+        path: "part-7/detail/:id",
+        element: <DetailPartSeven />
+      },
     ]
   },
   {

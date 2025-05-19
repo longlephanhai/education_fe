@@ -226,5 +226,8 @@ const Summary = {
   postQuestionPartSeven: {
     url: `${url_backend}/questionpartseven`
   },
+  detailPartSeven: {
+    url: `${url_backend}/questionpartseven/`
+  },
 }
 export default Summary;
