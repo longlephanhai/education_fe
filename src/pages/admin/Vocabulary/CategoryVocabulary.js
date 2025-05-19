@@ -89,8 +89,8 @@ const CategoryVocabulary = () => {
       key: "action",
       render: (text, record) => (
         <>
-          <Button type='primary' >Sửa</Button>
-          <Button type='danger' >Xóa</Button>
+          <Button type='primary'>Sửa</Button>
+          <Button type='danger'>Xóa</Button>
         </>
       )
     }

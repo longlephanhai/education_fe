@@ -109,6 +109,9 @@ const Summary = {
   getExamTitle: {
     url: `${url_backend}/exam/`
   },
+  getQuestionToeic:{
+    url: `${url_backend}/question/`
+  },
   getExamById: {
     url: `${url_backend}/question/`
   },

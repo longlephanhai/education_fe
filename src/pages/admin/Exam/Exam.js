@@ -43,11 +43,11 @@ const Exam = () => {
       dataIndex: 'audioUrl',
       key: 'audioUrl',
       render: (text, record) => (
-       <div>
-         <audio className="" controls>
-          <source src={record.audioUrl} type="audio/mpeg" />
-        </audio>
-       </div>
+        <div>
+          <audio className="" controls>
+            <source src={record.audioUrl} type="audio/mpeg" />
+          </audio>
+        </div>
       )
     },
     {
@@ -56,7 +56,7 @@ const Exam = () => {
       render: (text, record) => (
         <>
           <Button type='primary' onClick={() => navigate(`create-question/${record._id}`, { state: { title: record.name, id: record._id } })}>Cập nhật câu hỏi</Button>
-          <Button type='default'>Chi tiết câu hỏi</Button>
+          <Button type='default' onClick={() => navigate(`detail/${record._id}`)}>Chi tiết câu hỏi</Button>
           <Button type='danger'>Xóa</Button>
         </>
       )
