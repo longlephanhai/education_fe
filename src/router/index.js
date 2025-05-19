@@ -76,6 +76,7 @@ import CreateQuestionPartSeven from "../pages/admin/PartSeven/CreateQuestionPart
 import ListQuestionToeic from "../pages/admin/Exam/ListQuestionToeic";
 import DetailPartOne from "../pages/admin/PartOne/DetailPartOne";
 import DetailPartTwo from "../pages/admin/PartTwo/DetailPartTwo";
+import DetailPartThree from "../pages/admin/PartThree/DetailPartThree";
 
 
 export const router = [
@@ -332,6 +333,10 @@ export const router = [
       {
         path: "part-3/create-question/:id",
         element: <CreateQuestionPartThree />
+      },
+      {
+         path:"part-3/detail/:id",
+        element: <DetailPartThree />
       },
       {
         path: "part-4",
