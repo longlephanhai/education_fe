@@ -246,6 +246,9 @@ const Summary = {
   },
   getQuestionPart6: {
     url: `${url_backend}/questionpartsix/`
+  },
+  getQuestionPart7: {
+    url: `${url_backend}/questionpartseven/`
   }
 
 }

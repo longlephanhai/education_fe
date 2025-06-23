@@ -80,6 +80,12 @@ const Practice = () => {
       path: "/practice/part-six"
     },
     {
+      stt: 11,
+      content: "Ôn tập part 7",
+      choose: "Chọn",
+      path: "/practice/part-seven"
+    },
+    {
       stt: 3,
       content: "Luyện viết với AI",
       choose: "Chọn",
