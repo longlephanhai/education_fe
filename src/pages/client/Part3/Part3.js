@@ -3,12 +3,12 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Summary from "../../../API"
-const Part2 = () => {
+const Part3 = () => {
   const navigate = useNavigate()
   const [data, setData] = useState([])
   const fetchApi = async () => {
     try {
-      const response = await axios.get(Summary.getPartTwo.url, {
+      const response = await axios.get(Summary.getPartThree.url, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('access_token')}`
         }
@@ -59,4 +59,4 @@ const Part2 = () => {
   )
 }
 
-export default Part2
+export default Part3

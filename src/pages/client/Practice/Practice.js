@@ -56,6 +56,12 @@ const Practice = () => {
       path: "/practice/part-two"
     },
     {
+      stt: 7,
+      content: "Ôn tập part 3",
+      choose: "Chọn",
+      path: "/practice/part-three"
+    },
+    {
       stt: 3,
       content: "Luyện viết với AI",
       choose: "Chọn",
