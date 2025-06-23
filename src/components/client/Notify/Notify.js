@@ -1,10 +1,10 @@
 import React from 'react'
-import {  Modal } from 'antd';
-const Notify = ({ showModal, isModalOpen, handleOk, handleCancel }) => {
+import { Modal } from 'antd';
+const Notify = ({ showModal, isModalOpen, handleOk, handleCancel, time, question }) => {
   return (
     <>
       <Modal title="Lưu ý" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-        Bài thi gồm 200 câu hỏi, thời gian làm bài là 120 phút. Bạn có muốn bắt đầu làm bài không?
+        Bài thi gồm {question} câu hỏi, thời gian làm bài là {time} phút. Bạn có muốn bắt đầu làm bài không?
       </Modal>
     </>
   )

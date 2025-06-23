@@ -81,6 +81,9 @@ import DetailPartFour from "../pages/admin/PartFour/DetailPartFour";
 import DetailPartFive from "../pages/admin/PartFive/DetailPartFive";
 import DetailPartSix from "../pages/admin/PartSix/DetailPartSix";
 import DetailPartSeven from "../pages/admin/PartSeven/DetailPartSeven";
+import Part1 from "../pages/client/Part1/Part1";
+import QuestionPart1 from "../pages/client/Part1/QuestionPart1";
+import Result from "../pages/client/ResultPart/Result";
 
 
 export const router = [
@@ -195,6 +198,18 @@ export const router = [
       {
         path: "vocab-save",
         element: <VocabSaved />
+      },
+      {
+        path: "practice/part-one",
+        element: <Part1 />
+      },
+      {
+        path: "practice/part-one/:id",
+        element: <QuestionPart1 />
+      },
+      {
+        path: "practice/result/:id",
+        element: <Result />
       }
     ]
   },

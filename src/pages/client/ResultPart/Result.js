@@ -3,10 +3,14 @@ import { Table, Card, Typography } from 'antd';
 import { CheckCircleOutlined, CloseCircleOutlined } from '@ant-design/icons';
 
 const { Title, Text } = Typography;
-
-const ToeicResult = () => {
+const Result = () => {
   const location = useLocation();
   const { score, correctAnswers, answers } = location.state;
+
+  console.log('score', score);
+  console.log('correctAnswers', correctAnswers);
+  console.log('answers', answers);
+  
 
   const columns = [
     {
@@ -49,12 +53,12 @@ const ToeicResult = () => {
     },
   ];
 
-  const data = correctAnswers.slice(1).map((item, index) => ({
-    key: index + 1,
-    question: index + 1, 
+  const data = correctAnswers.map((item, index) => ({
+    key: index+1,
+    question: index+1,
     correctAnswer: item,
-    userAnswer: answers[index + 1], 
-    result: item === answers[index + 1] ? 'Dung' : 'Sai',
+    userAnswer: answers[index+1],
+    result: item === answers[index+1] ? 'Dung' : 'Sai',
   }));
 
   return (
@@ -79,7 +83,7 @@ const ToeicResult = () => {
         />
       </Card>
     </div>
-  );
-};
+  )
+}
 
-export default ToeicResult;
+export default Result

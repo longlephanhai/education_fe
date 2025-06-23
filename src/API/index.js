@@ -229,5 +229,9 @@ const Summary = {
   detailPartSeven: {
     url: `${url_backend}/questionpartseven/`
   },
+  getQuestionPart1: {
+    url: `${url_backend}/questionpartone/`
+  }
+
 }
 export default Summary;

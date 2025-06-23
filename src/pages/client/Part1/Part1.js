@@ -1,14 +1,15 @@
-import { Button, Card, Table } from 'antd'
-import axios from 'axios'
-import  { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import Summary from '../../../API'
-const Toeic = () => {
+import { Button, Card, Table } from "antd"
+import axios from "axios"
+import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
+import Summary from "../../../API"
+
+const Part1 = () => {
   const navigate = useNavigate()
   const [data, setData] = useState([])
   const fetchApi = async () => {
     try {
-      const response = await axios.get(Summary.getExam.url, {
+      const response = await axios.get(Summary.getPartOne.url, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('access_token')}`
         }
@@ -24,15 +25,7 @@ const Toeic = () => {
   useEffect(() => {
     fetchApi()
   }, [])
-
-
   const columns = [
-    {
-      title: 'STT',
-      dataIndex: 'index',
-      key: 'index',
-      render: (text, record, index) => index + 1
-    },
     {
       title: 'Tiêu đề',
       dataIndex: 'name',
@@ -48,8 +41,10 @@ const Toeic = () => {
       key: 'action',
       render: (text, record) => (
         <>
-          <Button type='primary' onClick={() => navigate(`${record._id}`, { state: { audioUrl: record.audioUrl } })}>Luyện</Button>
-          <Button type='default' onClick={() => navigate(`exam/${record._id}`, { state: { audioUrl: record.audioUrl } })}>Thi thật</Button>
+          {/* <Button type='primary' onClick={() => navigate(`create-question/${record._id}`, { state: { title: record.name, id: record._id } })}>Cập nhật câu hỏi</Button>
+          <Button type='default' onClick={() => navigate(`detail/${record._id}`)} >Chi tiết câu hỏi</Button>
+          <Button type='danger'>Xóa</Button> */}
+          <Button type='primary' onClick={() => navigate(`${record._id}`, { state: { audioUrl: record.audioUrl } })}>Luyện tập</Button>
         </>
       )
     }
@@ -69,4 +64,4 @@ const Toeic = () => {
   )
 }
 
-export default Toeic
+export default Part1

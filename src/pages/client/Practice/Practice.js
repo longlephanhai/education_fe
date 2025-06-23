@@ -22,11 +22,11 @@ const Practice = () => {
       title: "Hành động",
       dataIndex: "choose",
       key: "choose",
-      render: (text, record,index) => (
-        <Button 
-        ref={(el) => (buttonRefs.current[index] = el)}
-        type="primary" 
-        onClick={() => navigate(`${record.path}`)}>Chọn</Button>
+      render: (text, record, index) => (
+        <Button
+          ref={(el) => (buttonRefs.current[index] = el)}
+          type="primary"
+          onClick={() => navigate(`${record.path}`)}>Chọn</Button>
       )
     }
   ]
@@ -42,6 +42,12 @@ const Practice = () => {
       content: "Luyện thi toeic online",
       choose: "Chọn",
       path: "/practice/toeic"
+    },
+    {
+      stt: 3,
+      content: "Ôn tập part 1",
+      choose: "Chọn",
+      path: "/practice/part-one"
     },
     {
       stt: 3,
@@ -63,7 +69,7 @@ const Practice = () => {
   const steps = dataSource.map((item, index) => ({
     title: item.content,
     description: `Đi đến ${item.content}`,
-    target: () => buttonRefs.current[index], 
+    target: () => buttonRefs.current[index],
   }));
 
   const [open, setOpen] = useState(false)
@@ -89,7 +95,7 @@ const Practice = () => {
         open={open}
         onClose={() => setOpen(false)}
         steps={steps}
-        // onChange={handleStepChange}
+      // onChange={handleStepChange}
       />
     </div>
   )

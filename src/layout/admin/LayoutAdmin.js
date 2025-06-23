@@ -166,9 +166,9 @@ const LayoutAdmin = () => {
           <Menu.Item key="14" icon={<HiOutlineDocumentArrowDown />}>
             <Link to="doc">Tài liệu</Link>
           </Menu.Item>
-          <Menu.Item key="15" icon={<FaWarehouse />}>
+          {/* <Menu.Item key="15" icon={<FaWarehouse />}>
             <Link to="about-us">Về chúng tôi</Link>
-          </Menu.Item>
+          </Menu.Item> */}
         </Menu>
       </Sider>
       <Layout>

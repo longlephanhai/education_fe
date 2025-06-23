@@ -1,13 +1,13 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import axios from 'axios'
-import React, { useEffect, useRef, useState } from 'react'
-import { useLocation, useNavigate, useParams } from 'react-router-dom'
-import Summary from '../../../API'
-import { Button, Card, Col, message, Modal, Popconfirm, Radio, Row, Statistic } from 'antd'
-import { IoIosFlag } from 'react-icons/io'
-import Notify from '../../../components/client/Notify/Notify'
+import axios from "axios"
+import { useEffect, useRef, useState } from "react"
+import { useLocation, useNavigate, useParams } from "react-router-dom"
+import Summary from "../../../API"
+import { Button, Card, Col, message, Modal, Popconfirm, Radio, Row, Statistic } from "antd"
+import { IoIosFlag } from "react-icons/io"
+import Notify from "../../../components/client/Notify/Notify"
 const { Countdown } = Statistic;
-const ToeicExam = () => {
+
+const QuestionPart1 = () => {
   const navigate = useNavigate()
   const location = useLocation()
   const audioUrl = useState(location.state.audioUrl)
@@ -20,7 +20,7 @@ const ToeicExam = () => {
 
   const fetchApi = async () => {
     try {
-      const response = await axios.get(Summary.getExamById.url + params.id, {
+      const response = await axios.get(Summary.getQuestionPart1.url + params.id, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('access_token')}`
         }
@@ -60,7 +60,7 @@ const ToeicExam = () => {
   }
 
   let array = []
-  for (let i = 1; i <= 200; i++) {
+  for (let i = 1; i <= data.length; i++) {
     array.push(i)
   }
 
@@ -88,14 +88,14 @@ const ToeicExam = () => {
       }
     })
     setTotal(score);
-    navigate(`/practice/toeic/result/${params.id}`, { state: { score, correctAnswers, answers } })
+    navigate(`/practice/result/${params.id}`, { state: { score, correctAnswers, answers } })
   }
   const [flag, setFlag] = useState([])
   const handleFlag = (questionNumber) => {
-    if (!flag.includes(questionNumber)) {
-      setFlag([...flag, questionNumber])
+    if (!flag.includes(questionNumber + 1)) {
+      setFlag([...flag, questionNumber + 1])
     } else {
-      setFlag(flag.filter(item => item !== questionNumber))
+      setFlag(flag.filter(item => item !== questionNumber + 1))
     }
   }
 
@@ -116,14 +116,14 @@ const ToeicExam = () => {
     if (audioRef.current) {
       audioRef.current.play();
     }
-    setDeadline(Date.now() + 120 * 60 * 1000);
+    // setDeadline(Date.now() + 120 * 60 * 1000);
   };
   const handleCancel = () => {
     setIsModalOpen(false);
     if (audioRef.current) {
       audioRef.current.play();
     }
-    setDeadline(Date.now() + 120 * 60 * 1000);
+    // setDeadline(Date.now() + 120 * 60 * 1000);
   };
 
   // countdowwn
@@ -159,6 +159,7 @@ const ToeicExam = () => {
   };
 
 
+
   return (
     <Card style={{ minHeight: '100vh', marginTop: '10vh', padding: '2rem', boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)', position: 'relative' }}>
       {/* Phần audio */}
@@ -168,11 +169,11 @@ const ToeicExam = () => {
         </audio>
       </Row>
 
-      <Row>
+      {/* <Row>
         <Col span={12}>
           <Countdown title="Thời gian làm bài" value={deadline} onFinish={onFinish} />
         </Col>
-      </Row>
+      </Row> */}
 
       <Row>
         <Popconfirm
@@ -205,7 +206,6 @@ const ToeicExam = () => {
 
             {/* Nhóm các lựa chọn */}
             <Radio.Group
-              disabled={data[currentQuestionIndex].questionNumber === "0"}
               name={`${data[currentQuestionIndex].questionNumber}`}
               value={answers[data[currentQuestionIndex].questionNumber]}
               onChange={(e) => onChange(data[currentQuestionIndex].questionNumber, e.target.value)}
@@ -227,7 +227,7 @@ const ToeicExam = () => {
               <Button onClick={handleNextQuestion} >
                 Câu kế
               </Button>
-              <Button icon={<IoIosFlag />} disabled={data[currentQuestionIndex].questionNumber === "0"} onClick={() => handleFlag(currentQuestionIndex)} />
+              <Button icon={<IoIosFlag />} onClick={() => handleFlag(currentQuestionIndex)} />
             </Row>
           </Col>
         )}
@@ -254,13 +254,13 @@ const ToeicExam = () => {
           {array.map((item, index) => (
             <Col key={index} span={4}>
               <Button
-                onClick={() => setCurrentQuestionIndex(item)}
+                onClick={() => setCurrentQuestionIndex(item - 1)}
                 style={{
                   width: '100%',
                   padding: '0.3rem',
                   fontSize: '0.8rem',
-                  backgroundColor: currentQuestionIndex === item || choosenAnswers.includes(item) ? '#1890ff' : '',
-                  color: currentQuestionIndex === item ? '#fff' : '',
+                  backgroundColor: currentQuestionIndex === item - 1 || choosenAnswers.includes(item) ? '#1890ff' : '',
+                  color: currentQuestionIndex === item - 1 ? '#fff' : '',
                   position: 'relative'
                 }}
               >
@@ -271,9 +271,9 @@ const ToeicExam = () => {
           ))}
         </Row>
       </div>
-      <Notify time={120} question={data.length-1} showModal={showModal} isModalOpen={isModalOpen} handleOk={handleOk} handleCancel={handleCancel} />
+      <Notify time={5} question={data.length} showModal={showModal} isModalOpen={isModalOpen} handleOk={handleOk} handleCancel={handleCancel} />
     </Card>
   )
 }
 
-export default ToeicExam
+export default QuestionPart1
