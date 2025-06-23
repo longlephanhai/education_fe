@@ -44,10 +44,16 @@ const Practice = () => {
       path: "/practice/toeic"
     },
     {
-      stt: 3,
+      stt: 5,
       content: "Ôn tập part 1",
       choose: "Chọn",
       path: "/practice/part-one"
+    },
+    {
+      stt: 6,
+      content: "Ôn tập part 2",
+      choose: "Chọn",
+      path: "/practice/part-two"
     },
     {
       stt: 3,

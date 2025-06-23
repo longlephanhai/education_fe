@@ -84,6 +84,8 @@ import DetailPartSeven from "../pages/admin/PartSeven/DetailPartSeven";
 import Part1 from "../pages/client/Part1/Part1";
 import QuestionPart1 from "../pages/client/Part1/QuestionPart1";
 import Result from "../pages/client/ResultPart/Result";
+import Part2 from "../pages/client/Part2/Part2";
+import QuestionPart2 from "../pages/client/Part2/QuestionPart2";
 
 
 export const router = [
@@ -206,6 +208,14 @@ export const router = [
       {
         path: "practice/part-one/:id",
         element: <QuestionPart1 />
+      },
+      {
+        path: "practice/part-two",
+        element: <Part2 />
+      },
+      {
+        path: "practice/part-two/:id",
+        element: <QuestionPart2 />
       },
       {
         path: "practice/result/:id",
